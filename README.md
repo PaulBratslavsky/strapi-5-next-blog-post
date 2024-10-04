@@ -1,8 +1,8 @@
-In this beginner friendly tutorial, we will take a look on building a dynamic website using Next.js 14 and Strapi 5, a headless content management system (CMS). This blog post is based on the video tutorial by Brad Schiff, which can be found [here](https://www.youtube.com/watch?v=04bNEnIzCJc).
+In this beginner-friendly tutorial, we will build a dynamic website using Next.js 14 and Strapi 5, a headless content management system (CMS). This blog post is based on Brad Schiff's video tutorial, which can be found [here](https://www.youtube.com/watch?v=04bNEnIzCJc).
 
 ![What we will build](/images/033-strapi-team-member.gif)
 
-Don't let the simplicity fool you. In this tutorial we wil cover the following topics.
+Don't let the simplicity fool you. In this tutorial, we will cover the following topics.
 
 - Next.js App Router
 - Dynamic Routing
@@ -15,17 +15,17 @@ Don't let the simplicity fool you. In this tutorial we wil cover the following t
 - Populating Dynamic Zone Fields
 - Rendering Dynamic Zone Fields
 
-I will walk you through the steps I took when following the tutorial, just in case your prefer to read instead of watching the video.
+If you prefer to read instead of watch the video, I will walk you through the steps I took when following the tutorial.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/04bNEnIzCJc?si=I0Oy0ZXs6pHDycrE" title="YouTube video player" frameborder="0" allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-But I would recommend doing both, in my tutorial I ended up using TypesScript and taking a different approach when rendering Strapi's dynamic zone. 
+But I would recommend doing both. In my tutorial, I ended up using TypesScript and taking a different approach when rendering Strapi's dynamic zone.
 
-As a bonus, we used Strapi's Block Editor and I show you how to render not only the text blocks but also the image.
+As a bonus, we used Strapi's Block Editor, and I showed you how to render the text blocks and the image.
 
 Let's get started!
 
-First start by choosing a directory to setup your project in. I am going to name my project directory "brad"
+First, choose a directory to set up your project. I will name my project directory "brad."
 
 ```bash
 mkdir brad
@@ -62,7 +62,7 @@ cd client
 yarn dev
 ```
 
-You can navigate to the following URL to view the app: http://localhost:3000 and you should see the following screen.
+You can navigate to the following URL to view the app: http://localhost:3000. You should see the following screen:
 
 ![001-nextjs-home.png](/images/001-nextjs-home.png)
 
@@ -70,13 +70,13 @@ Nice! We have a basic Next.js app setup and running.
 
 ## Setting Up Our Next.js UI and Layout.
 
-In this section we will setup our Next.js UI and Layout. Once we are done, we should have something that looks like this:
+In this section, we will set up our Next.js UI and Layout. Once we are done, we should have something that looks like this:
 
 ![002-next-js-ui.gif](/images/002-next-js-ui.gif)
 
 **Building the Header Component**
 
-To get started, we will create a new folder in the `src/app` directory and name it `components`. Inside this folder, we will create a new file and name it `header.tsx`. This file will contain our header component.
+To get started, we will create a new folder in the `src/app` directory and name it `components.` We will create a new file and name it `header.tsx` inside this folder. This file will contain our header component.
 
 Inside the `header.tsx` file, let's start by adding the following code:
 
@@ -109,9 +109,9 @@ export default function Header() {
 }
 ```
 
-The above code is responsible for rendering our header component. It creates a `header` element with a `nav` element inside it. The `nav` element contains a `Link` component for the logo and a `ul` element with `NavLink` components for the navigation links.
+The above code is responsible for rendering our header component. It creates a `header` element with a `nav` element. The `nav` element contains a `Link` component for the logo and an `ul` element with `NavLink` components for the navigation links.
 
-We are iterating over the `links` array to create a `NavLink` component for each link. The `NavLink` component is a custom component that we will create in the next section. It is responsible for rendering a link that is active when the current path matches the href of the link.
+We are iterating over the `links` array to create a `NavLink` component for each link. The `NavLink` component is a custom component that we will make in the next section. It is responsible for rendering an active link when the current path matches the href of the link.
 
 **Building the NavLink Component**
 
@@ -154,11 +154,11 @@ export default function NavLink({ href, children }: Readonly<NavLinkProps>) {
 }
 ```
 
-Nice! We have a `NavLink` component that is responsible for rendering a link that is active when the current path matches the href of the link.
+Nice! We have a `NavLink` component that renders a link that is active when the current path matches the link's href.
 
 **Building the Footer Component**
 
-Inside the `components` folder, we will create a new file and name it `footer.tsx`. This file will contain our `Footer` component.
+We will create a new file in the `components` folder and name it `footer.tsx`. This file will contain our `Footer` component.
 
 Let's start by adding the following code:
 
@@ -174,7 +174,7 @@ export default function Footer() {
 }
 ```
 
-Nice! We have a `Footer` component that is responsible for rendering a footer with a copyright notice.
+Now, we have a `Footer` component that renders a footer with a copyright notice.
 
 **Building the Layout Component**
 
@@ -229,9 +229,9 @@ export default function RootLayout({
 }
 ```
 
-Nice! We have a `Layout` component that is responsible for rendering the layout of our app. It includes our `Header` and `Footer` components.
+We now have a `Layout` component responsible for rendering our app's layout. It includes our `Header` and `Footer` components.
 
-In our project we will have the following pages:
+In our project, we will have the following pages:
 
 - Home
 - Our Team
@@ -239,7 +239,7 @@ In our project we will have the following pages:
 
 Let's start by creating our routes for the pages above.
 
-In the `app` folder, we already have a `page.tsx` file. This file is our `Home` page.
+We already have a `page.tsx` file in the' app' folder. This file is our `Home` page.
 
 Let's update the `page.tsx` file with the following code:
 
@@ -255,7 +255,9 @@ export default function Home() {
 
 Nice! We have a `Home` page.
 
-Now let's create our `Our Team` page. In the `app` folder, we will create a new folder and name it `our-team`. Inside this folder, we will create a new file and name it `page.tsx`. This file will contain our `Our Team` page.
+Now, let's create our `Our Team` page. We will create a new folder in the `app` folder and name it `our-team`. We will create a new file and name it `page.tsx` inside this folder. This file will contain our `Our Team` page.
+
+Let's start by adding the following code:
 
 Let's start by adding the following code:
 
@@ -269,9 +271,7 @@ export default function OurTeam() {
 }
 ```
 
-Nice! We have a `Our Team` page.
-
-And finally let's create our `About Us` page. In the `app` folder, we will create a new folder and name it `about-us`. Inside this folder, we will create a new file and name it `page.tsx`. This file will contain our `About Us` page.
+Finally, let's create our `About Us` page. We will create a new folder in the `app` folder and name it `about-us`. Inside this folder, we will create a new file and name it `page.tsx`. This file will contain our `About Us` page.
 
 Let's start by adding the following code:
 
@@ -285,9 +285,9 @@ export default function AboutUs() {
 }
 ```
 
-Nice, now we have all of our basic pages setup.
+Nice, now we have all of our basic pages set up.
 
-In the next section we will start to setup our Strapi backend.
+In the next section, we will start to set up our Strapi backend.
 
 ## Getting Started with Strapi 5
 
@@ -295,13 +295,13 @@ Strapi is an open-source headless content management system (CMS) that allows yo
 
 ![Strapi](/images/003-strapi.png)
 
-We are going to use Strapi to power the backend of our application, enabling non-developers or non-programmers to easily contribute and manage content for the website, such as team member profiles.
+We are going to use Strapi to power the backend of our application, enabling non-developers or non-programmers to easily contribute and manage website content, such as team member profiles.
 
 ![Strpai API](/images/004-strapi-api.gif)
 
-By integrating Strapi with Next.js, we can dynamically fetch and display this content on the frontend, allowing for a seamless and interactive user experience. Strapi simplifies the process of handling data and offers a user-friendly admin interface for content management.
+By integrating Strapi with Next.js, we can dynamically fetch and display this content on the front end, allowing for a seamless and interactive user experience. Strapi simplifies the process of handling data and offers a user-friendly admin interface for content management.
 
-We can get started by running the following command in the root of our project:
+We can get started by running the following command at the root of our project:
 
 ```bash
 npx create-strapi-app@latest server
@@ -330,7 +330,7 @@ Start your 14-day free trial now!
 
 ```
 
-For the purposes of this tutorial, we will choose to skip the login step.
+For this tutorial, we will choose to skip the login step.
 
 After we hit enter, we will see the following options: here is what I chose.
 
@@ -345,14 +345,14 @@ After we hit enter, we will see the following options: here is what I chose.
  Strapi   Creating a new application at /Users/paulbratslavsky/Desktop/work/tutorials-and-posts/brad/server
 ```
 
-Once everything is setup, we can start the Strapi server by running the following command:
+Once everything is set up, we can start the Strapi server by running the following command:
 
 ```bash
 cd server
 yarn develop
 ```
 
-And we should be greeted with the following screen: go ahead and create your first **Strapi Admin User**.
+We should be greeted with the following screen: create your first **Strapi Admin User**.
 
 ![Strapi Admin User](/images/005-strapi-admin-user.png)
 
@@ -360,23 +360,23 @@ After you have successfully created the user, you should be redirected to the St
 
 ![Strapi Welcome](/images/006-strapi-welcome.png)
 
-In this tutorial we be primary focusing on collection types, which are essential for structuring our data in a way that is easily accessible and manageable.
+In this tutorial, we are primarily focusing on collection types, which are essential for structuring our data in a way that is easily accessible and manageable.
 
-Collection types in Strapi are used to define a group of similar data entries. For instance, in our case, we will create a collection type called "Team Members." This collection will allow us to manage individual profiles for each team member, including fields such as their name, description, photograph, and a URL-friendly slug.
+Collection types in Strapi define a group of similar data entries. For instance, in our case, we will create a collection type called "Team Members." This collection will allow us to manage individual profiles for each team member, including fields such as their name, description, photograph, and URL-friendly slug.
 
-The use of collection types is beneficial because it provides a structured format for data, making it straightforward to add, edit, or remove entries as needed. Each team member's data can be easily retrieved via API endpoints, enabling our frontend to dynamically display the information without hardcoding it.
+The use of collection types is beneficial because it provides a structured format for data, making it straightforward to add, edit, or remove entries as needed. Each team member's data can be easily retrieved via API endpoints, enabling our front end to dynamically display the information without hardcoding it.
 
 ## Building Our First Collection Type In Strapi 5
 
-We will start by creating a new collection type called "Team Member."
+We will create a new collection type called "Team Member."
 
 ![Strapi Collection Type](/images/007-strapi-collection-type.png)
 
-Once you click on "Continue" you will be redirected to the following screen:
+Once you click on "Continue," you will be redirected to the following screen:
 
 ![Strapi Collection Type Fields](/images/008-strapi-collection-type-fields.png)
 
-Now let's start by adding the following fields to our collection type:
+Now, let's start by adding the following fields to our collection type:
 
 | Field Name  | Field Type | Additional Info  |
 | ----------- | ---------- | ---------------- |
@@ -385,27 +385,27 @@ Now let's start by adding the following fields to our collection type:
 | photo       | Media      | Single media     |
 | slug        | UID        | Reference name   |
 
-Once you have added all of the fields, you can click on "Save" to save the collection type.
+Once you have added all the fields, you can click "Save" to save the collection type.
 
 ![Strapi Collection Type Fields](/images/009-strapi-collection-type-fields.png)
 
-Now that we have our collection type setup, we can start adding some data to it. Go ahead and add your first team member.
+Now that we have our collection type set up, we can start adding data to it. Go ahead and add your first team member.
 
 ![Adding Team Member Data](/images/010-adding-team-member-data.gif)
 
 Nice! We have added our first team member.
 
-Now that we have our team member data in place, let's see how we can access our **team member data** in via Strapi API.
+Now that we have our team member data in place, let's see how we can access it via the Strapi API.
 
-But first let's give our API appropriate permissions to access our team member data.
+But first, let's give our API appropriate permission to access our team member data.
 
 We can do this in the `Settings` section of Strapi.
 
 ![Strapi Settings](/images/011-strapi-settings.png)
 
-We are going to navigate to `Users & Permissions` plugin. Once we are in the `Users & Permissions` plugin, we will navigate to the `Roles` section, select the `Public` role, and then click on the `Team Members` permission.
+We will navigate to the `Users & Permissions` plugin. Once in the `Users & Permissions` plugin, we will navigate to the `Roles` section, select the `Public` role, and click on the `Team Members` permission.
 
-We will set `find` to `true` and `findOne` to `true`. This will give our API the necessary permissions to fetch and display our team member data.
+We will set `find` to `true` and `findOne` to `true.` This will give our API the necessary permissions to fetch and display our team member data.
 
 We should be able to make a request to the following URL to fetch our team member data:
 
@@ -441,15 +441,15 @@ And see the following response:
 }
 ```
 
-You will notice that we are not yet seeing the `photo` data in the response. This is because we need to tell Strapi to include the `photo` field in the response by using our `populate` and `filtering` flags.
+You will notice that we are not yet seeing the `photo` data in the response. This is because we need to tell Strapi to include the `photo` field in the response using our `populate` and `filtering` flags.
 
-This is something we will do as we start to build our frontend.
+This is something we will do as we start to build our front end.
 
 ## How To Fetch Data In Next.js
 
-Now that we have our Strapi backend setup, let's start to build our frontend. In this section we will start by fetching our team member data in Next.js.
+Now that we have our Strapi backend set up, let's start building our frontend. In this section, we will fetch our team member data in Next.js.
 
-With the addition of Next.js **Server Components** we can now fetch data directly in our components.
+With the addition of Next.js **Server Components**, we can now fetch data directly from our components.
 
 Let's see how we can accomplish this withing our `Our Team` page.
 
@@ -489,7 +489,7 @@ This will go ahead and fetch our team member data from our Strapi backend and di
 
 Now, let's update this to populate our `photo` field.
 
-You can learn more about Strapi's Populate and Filtering [here](https://docs.strapi.io/dev-docs/api/rest/populate-select) but I will walk you through the steps here.
+You can learn more about Strapi's Populate and Filtering [here](https://docs.strapi.io/dev-docs/api/rest/populate-select), but I will walk you through the steps here.
 
 We will start by constructing the `query` object using **Strapi's Query Builder** that you can find [here](https://docs.strapi.io/dev-docs/api/rest/interactive-query-builder).
 
@@ -538,18 +538,18 @@ You should see the following response:
 
 Notice how we now see the `photo` data in the response.
 
-To recap, in our collection type we added the following fields:
+To recap, in our collection type, we added the following fields:
 
 - name
 - description
 - slug
 - photo
 
-Name, Description, and Slug are all what I would call `top level fields`. That is because they do not have any relationships to other entities.
+Name, Description, and Slug are all that I would call `top-level fields.` That is because they do not have any relationships with other entities.
 
-Since `photo` is a relationship to another entity, image, we need to populate it.
+Since `photo` relates to another entity or image, we must populate it.
 
-As we did above using Strapi's Query Builder. Where we passed the following to the query:
+As we did above, use Strapi's Query Builder. Where we passed the following to the query:
 
 ```tsx
 {
@@ -561,9 +561,9 @@ As we did above using Strapi's Query Builder. Where we passed the following to t
 }
 ```
 
-Now, let's update our **Our Team** `page.tsx` file to display utilize our populate logic that we learned about above.
+Now, let's update our **Our Team** `page.tsx` file to display and utilize the populate logic that we learned about above.
 
-To help us to accomplish this, we will install a new package called `qs`. This package will help us to construct our query string.
+To accomplish this, we will install a new package called `qs`. This package will help us construct our query string.
 
 You can install the package by running the following command:
 
@@ -576,13 +576,13 @@ You can learn more about the `qs` package [here](https://www.npmjs.com/package/q
 
 Let's start by updating our `getTeamMembers` function to utilize the `qs` package.
 
-First we will import the `qs` package at the top of the file.
+First, we will import the `qs` package at the top of the file.
 
 ```tsx
 import qs from "qs";
 ```
 
-And then we will update our `getTeamMembers` function to utilize the `qs` package.
+Then we will update our `getTeamMembers` function to utilize the `qs` package.
 
 ```tsx
 async function getTeamMembers() {
@@ -652,13 +652,13 @@ export default async function OurTeam() {
 }
 ```
 
-In the next section we will start to build our frontend to display our team members.
+In the next section, we will build our frontend to display our team members.
 
 ## Building Our Team Member Card Component
 
-In this section we will start to build our `Team Member Card` component. This component will be responsible for displaying a single team member profile.
+In this section, we will start building our `Team Member Card` component. This component will display a single team member's profile.
 
-Inside our **Our Team** `page.tsx` file, we will start by creating a new component that we will name `TeamMemberCard`. This component will be responsible for displaying a single team member profile.
+Inside our **Our Team** `page.tsx` file, we will start by creating a new component named `TeamMemberCard`. This component will display a single team member profile.
 
 Let's start by adding the following code:
 
@@ -829,7 +829,7 @@ If we navigate to our `Our Team` page, we will see the following error:
 
 ![Our Team Page Error](/images/013-our-team-page-error.png)
 
-To fix this error, we need to update our `next.config.mjs` file to include our Strapi server as a remote pattern.
+We need to update our `next.config.mjs` file to include our Strapi server as a remote pattern to fix this error.
 
 ```mjs
 /** @type {import('next').NextConfig} */
@@ -850,15 +850,15 @@ const nextConfig = {
 export default nextConfig;
 ```
 
-Now restart your development server and navigate to our `Our Team` page and we should see the following:
+Now restart your development server and navigate to our `Our Team` page, and we should see the following:
 
 ![Our Team Page](/images/014-our-team-page.png)
 
-Nice, now that we can display our team members, let's start to build our `Team Member Detail` page. But before we do that, let's start by learning about **Strapi's Components** and **Dynamic Zones**.
+Nice. Now that we can display our team members let's start building our `Team Member Detail` page. But before we do that, let's learn about Strapi's Components and Dynamic Zones.
 
 ## Managing Content in Strapi with Components and Dynamic Zones
 
-In this section we will start by learning about Strapi's Components and Dynamic Zones.
+This section will start by learning about Strapi's Components and Dynamic Zones.
 
 Components are reusable building blocks that can be used to build pages. Dynamic zones are special components that can be used to build pages.
 
@@ -867,9 +867,9 @@ We will start by creating a new **Testimonial** component.
 
 ![Strapi Components](/images/015-strapi-components.png)
 
-I am going to name in `testimonial` and add create a `blocks` category.
+I will name it `testimonial` and create a `blocks` category.
 
-Now let's click on the `Continue` button and add our first fields.
+Now, click the `Continue` button and add our first fields.
 
 I am going to add the following fields:
 
@@ -884,7 +884,7 @@ Here is what the final fields should look like:
 ![Strapi Testimonial Component](/images/016-strapi-testimonial-component.png)
 
 **Spoiler Component**
-Now let's create another component, we will name it `spoiler`.
+Now let's create another component; we will name it `spoiler.`
 
 I am going to add the following fields:
 
@@ -899,7 +899,7 @@ Here is what the final fields should look like:
 
 ![Strapi Spoiler Component](/images/017-strapi-spoiler-component.png)
 
-And finally let's create one more component, we will name it `richText`.
+And finally, let's create one more component; we will name it `richText`.
 
 I am going to add the following field:
 
@@ -911,9 +911,9 @@ Here is what the final fields should look like:
 
 ![Strapi Content Component](/images/019-strapi-content-component.png)
 
-Nice! Now that we have our components created, let's start to build our dynamic zones.
+Nice! Now that our components are created let's start building our dynamic zones.
 
-Let's navigate to our `Team Member` collection type and click on `Add another field to this collection type`.
+Let's navigate to our `Team Member` collection type and click `Add another field to this type.`
 
 ![Strapi Dynamic Zone 1](/images/020-strapi-dynamic-zone-1.png)
 
@@ -921,7 +921,7 @@ We will scroll down and find the `Dynamic Zone` and add it to our collection typ
 
 ![Strapi Dynamic Zone 2](/images/021-strapi-dynamic-zone-2.png)
 
-Let's name it `blocks` and click on `Add component to the zone`.
+Let's name it `blocks` and click on `Add the component to the zone.`
 
 ![Strapi Dynamic Zone 3](/images/022-strapi-dynamic-zone-3.png)
 
@@ -931,21 +931,21 @@ I will add our `Testimonial`, `Spoiler`, and `Rich Text` components that we crea
 
 Don't forget to click on `Save` to save the dynamic zone.
 
-Now let's go ahead and add some data to our `Team Member` collection type.
+Now, let's go ahead and add some data to our `Team Member` collection type.
 
 ![Strapi Team Member Data](/images/025-strapi-team-member-data.gif)
 
-Nice, now let's see how we can fetch this data in our Next.js application.
+Excellent; let's see how we can fetch this data in our Next.js application.
 
-But first, let's revisit our `populate` logic. We did a little bit of this already when we were building our `Our Team` page.
+But first, let's revisit our `populate` logic. We already did a little bit of this when we built our `Our Team` page.
 
-But now that we are using dynamic zones, we need to update our populate logic to include our `blocks` field. And for this, we will use the `on` flag.
+But now that we use dynamic zones, we need to update our populate logic to include our `blocks` field. And for this, we will use the `on` flag.
 
 You can learn more about Strapi's `on` flag [here](https://docs.strapi.io/dev-docs/api/rest/guides/understanding-populate#populate-dynamic-zones).
 
 ![Strapi Populate Dynamic Zone](/images/026-strapi-populate-dynamic-zone.png)
 
-And here is the example query we would use to populate the above dynamic zone example:
+Here is the example query we would use to populate the above dynamic zone example:
 
 ```tsx
 {
@@ -968,15 +968,15 @@ And here is the example query we would use to populate the above dynamic zone ex
 }
 ```
 
-We will use similar populate logic as the example above to populate our `blocks` dynamic zone.
+We will use a similar populate logic as the example above to populate our `blocks` dynamic zone.
 
 **Populating Our Dynamic Zone**
 
-Taking a look at our `Team Member` collection we can see that we have our `blocks` dynamic zone field.
+Looking at our `Team Member` collection, we see that we have our `blocks` dynamic zone field.
 
 ![Strapi Team Member Collection](/images/027-strapi-team-member-collection.png)
 
-We can target the `blocks` field by using the `on` flag. We can also see that our `Testimonial` component has a `photo` field, which is a relationship to our `Media` content type. So will will populate the fields that we need using the `fields` flag.
+Using the ' on ' flag, we can target the `blocks` field. We can also see that our `Testimonial` component has a `photo` field, which is related to our `Media` content type. So, we will populate the fields we need using the `fields` flag.
 
 ![Strapi Populate Dynamic Zone](/images/028-strapi-populate-dynamic-zone-2.png)
 
@@ -1004,7 +1004,7 @@ Here is what the populate logic will look like:
 
 ```
 
-We can make a request to the following URL with the above populate logic included in the query string and we should see the following response:
+We can make a request to the following URL with the above populate logic included in the query string, and we should see the following response:
 
 [http://localhost:1337/api/team-members?populate[photo][fields][0]=alternativeText&populate[photo][fields][1]=name&populate[photo][fields][2]=url&populate[blocks][on][blocks.testimonial][populate][photo][fields][0]=alternativeText&populate[blocks][on][blocks.testimonial][populate][photo][fields][1]=name&populate[blocks][on][blocks.testimonial][populate][photo][fields][2]=url](http://localhost:1337/api/team-members?populate[photo][fields][0]=alternativeText&populate[photo][fields][1]=name&populate[photo][fields][2]=url&populate[blocks][on][blocks.testimonial][populate][photo][fields][0]=alternativeText&populate[blocks][on][blocks.testimonial][populate][photo][fields][1]=name&populate[blocks][on][blocks.testimonial][populate][photo][fields][2]=url)
 
@@ -1058,7 +1058,7 @@ We can make a request to the following URL with the above populate logic include
 
 Nice! Notice we can see our `testimonial` component data in the response.
 
-The last item that we need to solve before implementing our `Team Member Detail` page is to make sure that we know how to fetch a single team member via the `slug` field.
+The last item we need to solve before implementing our `Team Member Detail` page is to ensure we know how to fetch a single team member via the `slug` field.
 
 Let's update our `query` from above to include the `filters` flag. Here is what the updated query should look like:
 
@@ -1088,9 +1088,9 @@ Let's update our `query` from above to include the `filters` flag. Here is what 
 }
 ```
 
-This will allow us to just fetch the data for the team member that we want.
+This will allow us to fetch the data for the team member we want.
 
-And finally let's update our query to populate the rest of our `blocks` in our dynamic zone.
+And finally, let's update our query to populate the rest of our `blocks` in our dynamic zone.
 
 Here is the final query we will use:
 
@@ -1129,15 +1129,15 @@ Here is the final query we will use:
 
 And here is the response we should see:
 
-Notice how we are now seeing our `testimonial`, `spoiler` and `rich-text` components in the response.
+Notice how we now see our `testimonial,` `spoiler`, and `rich-text` components in the response.
 
-Finally, let's start working out our `Team Member Detail` page.
+Finally, start working out our `Team Member Detail` page.
 
 ## Building Our Team Member Detail Page
 
-In our **Next.js** project we will start by creating a new file in our `app/team-member` folder and name it `[slug]` and inside lets add `page.tsx`.
+In our **Next.js** project, we will start by creating a new file in our `app/team-member` folder and naming it `[slug].` Inside, let's add `page.tsx`.
 
-By naming our folder `[slug]` it will turn are normal route into a dynamic route, you can learn more about dynamic routes [here](https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes).
+By naming our folder `[slug]` it will turn our normal route into a dynamic route; you can learn more about dynamic routes [here](https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes).
 
 Let's add the following code to our `[slug]/page.tsx` file:
 
@@ -1151,15 +1151,15 @@ export default function TeamMemberDetail() {
 }
 ```
 
-Now when we click on any of the team members in our `Our Team` page we should see our `Team Member Detail` page.
+Now, when we click on any of the team members in our `Our Team` page, we should see our `Team Member Detail` page.
 
 ![Team Member Detail Page](/images/030-team-member-detail-page.png)
 
 **How To Get Our Slugs From The Params In Next.js**
 
-Now let's take a look how we can access our params in order to get our `slug` so we can use it to fetch our team member data.
+Now, let's look at how we can access our parameters to get our `slug,` which we can use to fetch our team member data.
 
-In our `[slug]/page.tsx` component we are able to access our `slug` by accessing the `params` object.
+In our `[slug]/page.tsx` component, we can access our `slug` by accessing the `params` object.
 
 We will start by adding the following code to our component:
 
@@ -1182,13 +1182,13 @@ export default function TeamMemberDetail({
 }
 ```
 
-Nice, now when we navigate to our `Team Member Detail` page we should see the name our our team member.
+When we navigate to our `Team Member Detail` page, we should see our team member's name.
 
 ![Team Member Detail Page](/images/031-team-member-detail-page-2.gif)
 
-Before styling our page, let's start by fetching our team member data.
+Before styling our page, let's start by fetching data from our team members.
 
-Let's start by creating a new function that will fetch our team member data. We will name it `getTeamMember` and adding it to our `[slug]/page.tsx` file.
+Let's start by creating a new function to fetch our team member data. We will name it `getTeamMember` and add it to our `[slug]/page.tsx` file.
 
 Here is what the code should look like:
 
@@ -1262,15 +1262,15 @@ export default async function TeamMemberDetail({
 }
 ```
 
-In the code above we are using the `getTeamMember` function to fetch our team member data. We are passing in our `slug` as an argument to the function. We are then returning the team member data to our component.
+In the code above, we use the `getTeamMember` function to fetch data for our team members. We pass in our `slug` as an argument to the function, and then we return the team member data to our component.
 
-Notice how we are passing our search query to `ulr.search` based on the populate logic we created earlier.
+Notice how we pass our search query to `ulr.search` based on the populate logic we created earlier.
 
-We are also using the `pre` tag to display our team member data in a readable format.
+We also use the `pre` tag to display our team member data in a readable format.
 
 ![Team Member Detail Page](/images/032-team-member-detail-page-3.png)
 
-Now let's start by adding some basic styling to our `Team Member Detail` page.
+Let's add basic styling to our `Team Member Detail` page.
 
 We will add the following code to our `[slug]/page.tsx` file:
 
@@ -1365,13 +1365,13 @@ export default async function TeamMemberDetail({
 }
 ```
 
-For the above code to work we need to make sure to create our new **BlockRenderer** component and all the other components that we are using in our `Team Member Detail` page.
+For the above code to work, we must create our new BlockRenderer component and all the other components we use on our `Team Member Detail` page.
 
 Let's do that now.
 
-Let's create a new folder in our `app/components` folder and name it `blocks` with in that folder let's create a new file and name it `index.tsx`.
+Let's create a new folder in our `app/components` folder and name it `blocks`; let's create a new file and name it `index.tsx`.
 
-Now let's create the following components in our `blocks` folder:
+Now, let's create the following components in our `blocks` folder:
 
 1. `spoiler-block.tsx`
 2. `testimonial-block.tsx`
@@ -1381,7 +1381,7 @@ Now let's create the following components in our `blocks` folder:
 
 Here is what the `spoiler-block.tsx` file should look like:
 
-``` jsx
+```jsx
 "use client";
 
 import { useState } from "react";
@@ -1429,7 +1429,6 @@ export function SpoilerBlock({ block }: { block: SpoilerBlock }) {
     </div>
   );
 }
-
 ```
 
 **Testimonial Block**
@@ -1472,7 +1471,12 @@ export function TestimonialBlock({ block }: { block: TestimonialBlock }) {
         </div>
         <div className="p-8 col-span-2 flex flex-col justify-center">
           <blockquote className="relative">
-            <svg className="absolute top-0 left-0 transform -translate-x-6 -translate-y-8 h-16 w-16 text-gray-300 opacity-50" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+            <svg
+              className="absolute top-0 left-0 transform -translate-x-6 -translate-y-8 h-16 w-16 text-gray-300 opacity-50"
+              fill="currentColor"
+              viewBox="0 0 32 32"
+              aria-hidden="true"
+            >
               <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
             </svg>
             <p className="relative text-xl font-medium text-gray-900 mb-4">
@@ -1487,7 +1491,6 @@ export function TestimonialBlock({ block }: { block: TestimonialBlock }) {
     </figure>
   );
 }
-
 ```
 
 **Rich Text Block**
@@ -1515,28 +1518,27 @@ export function RichTextBlock({ block }: { block: RichTextBlock }) {
     <div className="richtext">
       <BlocksRenderer
         content={block.content}
-      blocks={{
-        image: ({ image }) => {
-          console.log("image", image);
-          if (!image) return null;
-          return (
-            <div className="my-4 flex justify-center">
-              <Image
-                src={image.url}
-                width={image.width || 800}
-                height={image.height || 600}
-                alt={image.alternativeText || ""}
-                className="rounded-lg shadow-md h-[300px] w-full object-cover"
-              />
-            </div>
-          );
-        },
+        blocks={{
+          image: ({ image }) => {
+            console.log("image", image);
+            if (!image) return null;
+            return (
+              <div className="my-4 flex justify-center">
+                <Image
+                  src={image.url}
+                  width={image.width || 800}
+                  height={image.height || 600}
+                  alt={image.alternativeText || ""}
+                  className="rounded-lg shadow-md h-[300px] w-full object-cover"
+                />
+              </div>
+            );
+          },
         }}
       />
     </div>
   );
 }
-
 ```
 
 This component is using Strapi's Rich Text renderer. You can learn more about it [here](https://github.com/strapi/blocks-react-renderer);
@@ -1544,10 +1546,14 @@ This component is using Strapi's Rich Text renderer. You can learn more about it
 To style our Rich Text component we are using Tailwind CSS. Here is what I added in the `global.css` file:
 
 ```css
-
 /* Rich Text Block Start */
 
-.richtext h1, .richtext h2, .richtext h3, .richtext h4, .richtext h5, .richtext h6 {
+.richtext h1,
+.richtext h2,
+.richtext h3,
+.richtext h4,
+.richtext h5,
+.richtext h6 {
   @apply font-bold leading-tight;
 }
 
@@ -1587,7 +1593,8 @@ To style our Rich Text component we are using Tailwind CSS. Here is what I added
   @apply text-blue-600 dark:text-blue-400 hover:underline;
 }
 
-.richtext ul, .richtext ol {
+.richtext ul,
+.richtext ol {
   @apply mb-4 pl-8;
 }
 
@@ -1605,13 +1612,11 @@ To style our Rich Text component we are using Tailwind CSS. Here is what I added
 Nice, now that we have all of our components let's add the following code in our `components/blocks/index.tsx` file:
 
 ```tsx
-import { RichTextBlock} from "./rich-text-block";
+import { RichTextBlock } from "./rich-text-block";
 import { TestimonialBlock } from "./testimonial-block";
 import { SpoilerBlock } from "./spoiler-block";
 
-
 type TeamPageBlock = SpoilerBlock | TestimonialBlock | RichTextBlock;
-
 
 const blocks: Record<
   TeamPageBlock["__component"],
@@ -1628,16 +1633,15 @@ const blocks: Record<
   ),
 };
 
-
 function BlockRenderer({ block }: { block: TeamPageBlock }) {
   const BlockComponent = blocks[block.__component];
   return BlockComponent ? <BlockComponent block={block} /> : null;
 }
 
-
 export { BlockRenderer };
 export type { TeamPageBlock };
 ```
+
 
 **Key Components:**
 
@@ -1655,7 +1659,7 @@ When the block's __component is "blocks.spoiler", it renders the SpoilerBlock co
 Each block type is cast to the correct type using TypeScript's as keyword (block as SpoilerBlock) to ensure the correct component is used with the correct block data.
 BlockRenderer Function:
 
-The BlockRenderer component is responsible for taking a TeamPageBlock object as a prop and rendering the appropriate component based on the block's __component field.
+The BlockRenderer component takes a TeamPageBlock object as a prop and renders the appropriate component based on the block's __component field.
 
 Inside this function, blocks[block.__component] is used to retrieve the correct component for the given block. If a matching component is found, it is rendered; otherwise, null is returned (indicating no content is rendered for unrecognized block types).
 
@@ -1671,17 +1675,17 @@ A TeamPageBlock (e.g., a TestimonialBlock) is passed to BlockRenderer.
 BlockRenderer checks the block's __component field (e.g., "blocks.testimonial").
 
 It finds the corresponding component (TestimonialBlock) in the blocks object.
-It renders the TestimonialBlock component, passing the block as a prop, and the block content is displayed.
+It renders the TestimonialBlock component, passing the block as a prop and displaying the block content.
 
 This pattern is useful for rendering dynamic content where blocks are of different types, and each type has its own specific rendering logic.
 
-Nice, now that we have all of our components done, let's add some data to our team member in Strapi's admin panel and then checkout our locally running Next.js app to see our new team member page.
+Nice. Now that we have all of our components done let's add some data for our team members in Strapi's admin panel. Then, check out our locally running Next.js app to see our new team member page.
 
 ![Strapi Team Member](/images/033-strapi-team-member.gif)
 
 ## Conclusion
 
-In this tutorial covered building a dynamic website using Next.js 14 and Strapi 5,  and we explored the front and backend aspects, making it accessible for beginners.
+This tutorial covered building a dynamic website using Next.js 14 and Strapi 5,  and we explored the front and back aspects, making it accessible for beginners.
 
 **Topics included:**
 - Creating and styling components.
@@ -1697,7 +1701,7 @@ In this tutorial covered building a dynamic website using Next.js 14 and Strapi 
 
 Hope you enjoyed this tutorial. And a huge thank you to Brad from [LearnWebCode](https://www.youtube.com/watch?v=04bNEnIzCJc) for creating the video tutorial I used to write this blog post. Make sure to check out his video.
 
-You can find the code for this tutorial [here]().
+You can find the code for this tutorial [here](https://github.com/PaulBratslavsky/strapi-5-next-blog-post).
 
 If you have any questions or feedback, please leave a comment below. Or join us on **Strapi's Discord** [here](https://discord.com/invite/strapi) for our "Strapi Open Office Hours" Monday - Friday.
 
