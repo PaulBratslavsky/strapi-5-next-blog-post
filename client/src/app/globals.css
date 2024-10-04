@@ -25,3 +25,60 @@ body {
     text-wrap: balance;
   }
 }
+
+
+/* Rich Text Block Start */
+
+.richtext h1, .richtext h2, .richtext h3, .richtext h4, .richtext h5, .richtext h6 {
+  @apply font-bold leading-tight;
+}
+
+.richtext h1 {
+  @apply text-4xl mb-6 text-gray-900 dark:text-gray-100;
+}
+
+.richtext h2 {
+  @apply text-3xl mb-4 text-gray-800 dark:text-gray-200;
+}
+
+.richtext h3 {
+  @apply text-2xl mb-3 text-gray-700 dark:text-gray-300;
+}
+
+.richtext h4 {
+  @apply text-xl mb-2 text-gray-600 dark:text-gray-400;
+}
+
+.richtext h5 {
+  @apply text-lg mb-2 text-gray-600 dark:text-gray-400;
+}
+
+.richtext h6 {
+  @apply text-base mb-2 text-gray-600 dark:text-gray-400;
+}
+
+.richtext p {
+  @apply mb-4 text-gray-700 dark:text-gray-300 leading-relaxed;
+}
+
+.richtext blockquote {
+  @apply border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900 dark:bg-opacity-20 italic my-8 p-4 rounded-r-lg;
+}
+
+.richtext a {
+  @apply text-blue-600 dark:text-blue-400 hover:underline;
+}
+
+.richtext ul, .richtext ol {
+  @apply mb-4 pl-8;
+}
+
+.richtext ul {
+  @apply list-disc;
+}
+
+.richtext ol {
+  @apply list-decimal;
+}
+
+/* Rich Text Block End */
