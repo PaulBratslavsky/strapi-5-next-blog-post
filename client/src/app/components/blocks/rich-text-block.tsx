@@ -8,7 +8,7 @@ import Image from "next/image";
 export interface RichTextBlock {
   __component: "blocks.rich-text";
   id: number;
-  content: BlocksContent;
+  richText: BlocksContent;
 }
 
 // This renderer is using Strapi's Rich Text renderer.
@@ -18,7 +18,7 @@ export function RichTextBlock({ block }: { block: RichTextBlock }) {
   return (
     <div className="richtext">
       <BlocksRenderer
-        content={block.content}
+        content={block.richText}
       blocks={{
         image: ({ image }) => {
           console.log("image", image);
